@@ -1,0 +1,58 @@
+---
+// src/components/Proceso.astro
+const pasos = [
+  {
+    num: '01',
+    titulo: 'Descubrimiento',
+    desc: 'Entendemos tu negocio, metas y usuarios para definir la solución ideal.',
+  },
+  {
+    num: '02',
+    titulo: 'Diseño',
+    desc: 'Wireframes, prototipo y sistema de diseño validado contigo antes de codear.',
+  },
+  {
+    num: '03',
+    titulo: 'Desarrollo',
+    desc: 'Sprints cortos con entregas continuas. Código limpio, testeable y documentado.',
+  },
+  {
+    num: '04',
+    titulo: 'Lanzamiento',
+    desc: 'Deploy, monitoreo y soporte post-lanzamiento. Tu éxito es el nuestro.',
+  },
+];
+---
+<section id="proceso" class="bg-gradient-to-br from-navy-darkest to-navy-mid py-20 px-6">
+  <div class="max-w-6xl mx-auto">
+
+    <!-- Header -->
+    <div class="text-center mb-12 reveal">
+      <p class="text-teal text-xs font-semibold tracking-widest uppercase mb-3">Cómo trabajamos</p>
+      <h2 class="font-display text-cream text-4xl font-bold">
+        Un proceso <span class="text-teal">probado</span> y transparente
+      </h2>
+      <p class="text-cream/50 text-base mt-4 max-w-lg mx-auto leading-relaxed">
+        Cada proyecto sigue un flujo claro que minimiza riesgos y maximiza resultados.
+      </p>
+    </div>
+
+    <!-- Pasos -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      {pasos.map((paso, i) => (
+        <div class="reveal relative">
+          <!-- Conector horizontal (todos menos el último, solo en desktop) -->
+          {i < pasos.length - 1 && (
+            <div class="hidden lg:block absolute top-[22px] left-[52px] right-0 h-px bg-gradient-to-r from-teal to-teal/20" />
+          )}
+          <div class="w-11 h-11 border-2 border-teal rounded-full flex items-center justify-center text-teal font-bold text-sm mb-5 relative bg-navy-darkest z-10">
+            {paso.num}
+          </div>
+          <h3 class="text-cream font-bold text-sm mb-2">{paso.titulo}</h3>
+          <p class="text-cream/50 text-xs leading-relaxed">{paso.desc}</p>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

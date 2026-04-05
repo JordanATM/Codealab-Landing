@@ -1,0 +1,89 @@
+---
+// src/components/Proyectos.astro
+import { ArrowUpRight } from 'lucide-astro';
+
+const proyectos = [
+  {
+    nombre: 'Pimbalú Delicias Caseras',
+    desc: 'Sitio para negocio de dulces artesanales con catálogo y pedidos vía WhatsApp y delivery a domicilio.',
+    url: 'https://pimbalu.vercel.app/',
+    tags: ['Astro', 'E-commerce'],
+    gradientFrom: '#6B21A8',
+    gradientTo: '#9333EA',
+    emoji: '🍭',
+  },
+  {
+    nombre: 'Lumière — Peluquería',
+    desc: 'Sitio premium para salón de belleza con catálogo de servicios, precios y reserva online.',
+    url: 'https://webpeluqueria.vercel.app/',
+    tags: ['Next.js', 'Tailwind'],
+    gradientFrom: '#1a1a2e',
+    gradientTo: '#16213e',
+    emoji: '✂️',
+  },
+  {
+    nombre: 'Indicadores BC',
+    desc: 'Calculadora de conversión de divisas con tasas en tiempo real del Banco Central de Chile.',
+    url: 'https://indicadores-bc.vercel.app/',
+    tags: ['Web App', 'API'],
+    gradientFrom: '#034078',
+    gradientTo: '#1282A2',
+    emoji: '💱',
+  },
+];
+---
+<section id="proyectos" class="bg-cream py-20 px-6">
+  <div class="max-w-6xl mx-auto">
+
+    <!-- Header -->
+    <div class="text-center mb-12 reveal">
+      <p class="text-teal text-xs font-semibold tracking-widest uppercase mb-3">Portafolio</p>
+      <h2 class="font-display text-navy-darkest text-4xl font-bold">
+        Proyectos que <span class="text-navy-mid">hablan</span> por nosotros
+      </h2>
+      <p class="text-navy-dark/60 text-base mt-4 max-w-lg mx-auto leading-relaxed">
+        Algunos de los productos que hemos construido junto a nuestros clientes.
+      </p>
+    </div>
+
+    <!-- Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      {proyectos.map((p) => (
+        <article class="reveal border border-navy-mid/10 rounded-xl overflow-hidden hover:-translate-y-1 hover:shadow-xl hover:shadow-navy-mid/10 transition-all duration-300">
+
+          <!-- Thumbnail -->
+          <div
+            class="h-36 flex items-center justify-center"
+            style={`background: linear-gradient(135deg, ${p.gradientFrom}, ${p.gradientTo});`}
+          >
+            <div class="text-center text-white">
+              <div class="text-4xl mb-1">{p.emoji}</div>
+              <div class="text-xs font-semibold opacity-80">{p.nombre}</div>
+            </div>
+          </div>
+
+          <!-- Body -->
+          <div class="p-5">
+            <h3 class="text-navy-darkest font-bold text-sm mb-2">{p.nombre}</h3>
+            <p class="text-navy-dark/60 text-xs leading-relaxed mb-3">{p.desc}</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              {p.tags.map((tag) => (
+                <span class="bg-navy-mid text-cream text-xs font-semibold px-2 py-1 rounded">{tag}</span>
+              ))}
+            </div>
+            <a
+              href={p.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-1 text-teal text-xs font-semibold hover:underline"
+            >
+              Ver proyecto <ArrowUpRight size={13} />
+            </a>
+          </div>
+
+        </article>
+      ))}
+    </div>
+
+  </div>
+</section>

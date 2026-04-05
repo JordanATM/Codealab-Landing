@@ -1,0 +1,57 @@
+---
+// src/components/Footer.astro
+import { Linkedin, Github, Instagram } from 'lucide-astro';
+
+const year = new Date().getFullYear();
+---
+<footer class="bg-navy-darkest py-8 px-6">
+  <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+
+    <!-- Logo versión blanca (SVG negativo) -->
+    <a href="/" aria-label="CodeaLab inicio">
+      <img
+        src="/img/Negativo B Texto.svg"
+        alt="CodeaLab"
+        width="110"
+        height="40"
+        class="h-7 w-auto opacity-90"
+      />
+    </a>
+
+    <p class="text-cream/30 text-xs text-center">
+      © {year} CodeaLab. Todos los derechos reservados.
+    </p>
+
+    <!-- Redes sociales -->
+    <div class="flex items-center gap-3">
+      <a
+        href="https://linkedin.com/company/codealab"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="LinkedIn de CodeaLab"
+        class="w-8 h-8 border border-cream/20 rounded-full flex items-center justify-center text-cream/50 hover:text-cream hover:border-cream/50 transition-colors"
+      >
+        <Linkedin size={14} />
+      </a>
+      <a
+        href="https://github.com/codealab"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="GitHub de CodeaLab"
+        class="w-8 h-8 border border-cream/20 rounded-full flex items-center justify-center text-cream/50 hover:text-cream hover:border-cream/50 transition-colors"
+      >
+        <Github size={14} />
+      </a>
+      <a
+        href="https://instagram.com/codealab"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Instagram de CodeaLab"
+        class="w-8 h-8 border border-cream/20 rounded-full flex items-center justify-center text-cream/50 hover:text-cream hover:border-cream/50 transition-colors"
+      >
+        <Instagram size={14} />
+      </a>
+    </div>
+
+  </div>
+</footer>
