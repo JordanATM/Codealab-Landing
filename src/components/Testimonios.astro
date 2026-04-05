@@ -1,0 +1,58 @@
+---
+// src/components/Testimonios.astro
+const testimonios = [
+  {
+    texto: 'CodeaLab transformó nuestra plataforma en tiempo récord. La calidad del código y la comunicación fueron excepcionales.',
+    nombre: 'Martín Rodríguez',
+    rol: 'CTO — PlataformaPro',
+    iniciales: 'MR',
+  },
+  {
+    texto: 'El equipo entendió nuestra visión desde el día uno. El resultado superó todas nuestras expectativas de diseño y performance.',
+    nombre: 'Sofía López',
+    rol: 'Fundadora — ShopLux',
+    iniciales: 'SL',
+  },
+  {
+    texto: 'Proceso claro, entregas puntuales y código de primer nivel. Los recomendaría sin dudar a cualquier startup.',
+    nombre: 'Andrés Castillo',
+    rol: 'CEO — HealthTrack',
+    iniciales: 'AC',
+  },
+];
+---
+<section id="testimonios" class="bg-navy-dark/5 border-y border-navy-mid/10 py-20 px-6">
+  <div class="max-w-6xl mx-auto">
+
+    <!-- Header -->
+    <div class="text-center mb-12 reveal">
+      <p class="text-teal text-xs font-semibold tracking-widest uppercase mb-3">Clientes</p>
+      <h2 class="font-display text-navy-darkest text-4xl font-bold">
+        Lo que dicen quienes <span class="text-navy-mid">confían</span> en nosotros
+      </h2>
+    </div>
+
+    <!-- Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      {testimonios.map((t) => (
+        <article class="reveal bg-cream border border-navy-mid/10 rounded-xl p-7">
+          <div class="text-teal text-5xl font-black leading-none mb-3" aria-hidden="true">"</div>
+          <p class="text-navy-dark text-sm leading-relaxed italic mb-6">{t.texto}</p>
+          <div class="flex items-center gap-3">
+            <div
+              class="w-9 h-9 rounded-full bg-navy-mid flex items-center justify-center text-cream text-xs font-bold shrink-0"
+              aria-hidden="true"
+            >
+              {t.iniciales}
+            </div>
+            <div>
+              <div class="text-navy-darkest text-sm font-bold">{t.nombre}</div>
+              <div class="text-navy-dark/50 text-xs">{t.rol}</div>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+
+  </div>
+</section>
