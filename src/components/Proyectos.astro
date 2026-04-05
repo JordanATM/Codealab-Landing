@@ -1,6 +1,10 @@
 ---
 // src/components/Proyectos.astro
 import { ArrowUpRight } from 'lucide-astro';
+import { Image } from 'astro:assets';
+import imgPimbalu from '../assets/proyectos/pimbalu.png';
+import imgLumiere from '../assets/proyectos/lumiere.png';
+import imgIndicadoresBc from '../assets/proyectos/indicadores-bc.png';
 
 const proyectos = [
   {
@@ -8,27 +12,21 @@ const proyectos = [
     desc: 'Sitio para negocio de dulces artesanales con catálogo y pedidos vía WhatsApp y delivery a domicilio.',
     url: 'https://pimbalu.vercel.app/',
     tags: ['Astro', 'E-commerce'],
-    gradientFrom: '#6B21A8',
-    gradientTo: '#9333EA',
-    emoji: '🍭',
+    img: imgPimbalu,
   },
   {
     nombre: 'Lumière — Peluquería',
     desc: 'Sitio premium para salón de belleza con catálogo de servicios, precios y reserva online.',
     url: 'https://webpeluqueria.vercel.app/',
     tags: ['Next.js', 'Tailwind'],
-    gradientFrom: '#1a1a2e',
-    gradientTo: '#16213e',
-    emoji: '✂️',
+    img: imgLumiere,
   },
   {
     nombre: 'Indicadores BC',
     desc: 'Calculadora de conversión de divisas con tasas en tiempo real del Banco Central de Chile.',
     url: 'https://indicadores-bc.vercel.app/',
     tags: ['Web App', 'API'],
-    gradientFrom: '#034078',
-    gradientTo: '#1282A2',
-    emoji: '💱',
+    img: imgIndicadoresBc,
   },
 ];
 ---
@@ -52,14 +50,16 @@ const proyectos = [
         <article class="reveal border border-navy-mid/10 rounded-xl overflow-hidden hover:-translate-y-1 hover:shadow-xl hover:shadow-navy-mid/10 transition-all duration-300">
 
           <!-- Thumbnail -->
-          <div
-            class="h-36 flex items-center justify-center"
-            style={`background: linear-gradient(135deg, ${p.gradientFrom}, ${p.gradientTo});`}
-          >
-            <div class="text-center text-white">
-              <div class="text-4xl mb-1">{p.emoji}</div>
-              <div class="text-xs font-semibold opacity-80">{p.nombre}</div>
-            </div>
+          <div class="h-40 overflow-hidden">
+            <Image
+              src={p.img}
+              alt={`Captura de pantalla de ${p.nombre}`}
+              width={640}
+              height={300}
+              format="webp"
+              quality={85}
+              class="w-full h-full object-cover object-top"
+            />
           </div>
 
           <!-- Body -->
