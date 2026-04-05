@@ -1,0 +1,77 @@
+---
+// src/components/Servicios.astro
+import { Monitor, Smartphone, Server, PenTool, ShoppingBag, Lightbulb } from 'lucide-astro';
+
+const servicios = [
+  {
+    icon: Monitor,
+    nombre: 'Desarrollo Web',
+    desc: 'Aplicaciones web modernas, rápidas y escalables.',
+    tags: ['React', 'Next.js', 'Vue'],
+  },
+  {
+    icon: Smartphone,
+    nombre: 'Apps Móviles',
+    desc: 'Experiencias nativas e híbridas para iOS y Android.',
+    tags: ['React Native', 'Flutter'],
+  },
+  {
+    icon: Server,
+    nombre: 'Backend & APIs',
+    desc: 'Arquitecturas robustas, seguras y de alto rendimiento.',
+    tags: ['Node', 'Python', 'AWS'],
+  },
+  {
+    icon: PenTool,
+    nombre: 'UI/UX Design',
+    desc: 'Interfaces que enamoran y convierten usuarios en clientes.',
+    tags: ['Figma', 'Design Systems'],
+  },
+  {
+    icon: ShoppingBag,
+    nombre: 'E-commerce',
+    desc: 'Tiendas online que venden más, con mejor experiencia.',
+    tags: ['Shopify', 'WooCommerce'],
+  },
+  {
+    icon: Lightbulb,
+    nombre: 'Consultoría Tech',
+    desc: 'Arquitectura, code review y estrategia de producto.',
+    tags: ['DevOps', 'Code Review'],
+  },
+];
+---
+<section id="servicios" class="bg-cream py-20 px-6">
+  <div class="max-w-6xl mx-auto">
+
+    <!-- Header -->
+    <div class="text-center mb-12 reveal">
+      <p class="text-teal text-xs font-semibold tracking-widest uppercase mb-3">Lo que hacemos</p>
+      <h2 class="font-display text-navy-darkest text-4xl font-bold">
+        Servicios que <span class="text-navy-mid">impulsan</span> tu negocio
+      </h2>
+      <p class="text-navy-dark/60 text-base mt-4 max-w-lg mx-auto leading-relaxed">
+        Soluciones digitales completas, desde el diseño hasta el despliegue en producción.
+      </p>
+    </div>
+
+    <!-- Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      {servicios.map((s) => (
+        <article class="reveal border border-navy-mid/10 rounded-xl p-7 hover:border-teal hover:shadow-lg hover:shadow-teal/10 transition-all duration-300 group">
+          <div class="w-10 h-10 bg-navy-mid rounded-lg flex items-center justify-center mb-5 text-cream group-hover:bg-teal transition-colors">
+            <s.icon size={20} />
+          </div>
+          <h3 class="text-navy-darkest font-bold text-base mb-2">{s.nombre}</h3>
+          <p class="text-navy-dark/60 text-sm leading-relaxed mb-4">{s.desc}</p>
+          <div class="flex flex-wrap gap-2">
+            {s.tags.map((tag) => (
+              <span class="bg-navy-mid text-cream text-xs font-semibold px-2 py-1 rounded">{tag}</span>
+            ))}
+          </div>
+        </article>
+      ))}
+    </div>
+
+  </div>
+</section>
