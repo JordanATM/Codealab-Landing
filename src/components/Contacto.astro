@@ -1,13 +1,17 @@
 ---
 // src/components/Contacto.astro
-import { Mail, MapPin } from 'lucide-astro';
+import { Mail, MapPin } from "lucide-astro";
 ---
-<section id="contacto" class="bg-cream py-20 px-6">
-  <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
 
+<section id="contacto" class="bg-cream py-20 px-6">
+  <div
+    class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-start"
+  >
     <!-- Info -->
     <div class="reveal">
-      <p class="text-teal text-xs font-semibold tracking-widest uppercase mb-3">Contacto</p>
+      <p class="text-teal text-xs font-semibold tracking-widest uppercase mb-3">
+        Contacto
+      </p>
       <h2 class="font-display text-navy-darkest text-3xl font-bold mb-4">
         Hablemos de tu proyecto
       </h2>
@@ -17,16 +21,22 @@ import { Mail, MapPin } from 'lucide-astro';
 
       <div class="space-y-4">
         <div class="flex items-center gap-3">
-          <div class="w-9 h-9 bg-navy-mid rounded-lg flex items-center justify-center text-cream shrink-0">
+          <div
+            class="w-9 h-9 bg-navy-mid rounded-lg flex items-center justify-center text-cream shrink-0"
+          >
             <Mail size={16} />
           </div>
           <span class="text-navy-dark text-sm">contactocodealab@gmail.com</span>
         </div>
         <div class="flex items-center gap-3">
-          <div class="w-9 h-9 bg-navy-mid rounded-lg flex items-center justify-center text-cream shrink-0">
+          <div
+            class="w-9 h-9 bg-navy-mid rounded-lg flex items-center justify-center text-cream shrink-0"
+          >
             <MapPin size={16} />
           </div>
-          <span class="text-navy-dark text-sm">Chile · Trabajo remoto global</span>
+          <span class="text-navy-dark text-sm"
+            >Chile · Trabajo remoto global</span
+          >
         </div>
       </div>
     </div>
@@ -85,25 +95,34 @@ import { Mail, MapPin } from 'lucide-astro';
       >
         Enviar mensaje →
       </button>
-      <p id="form-feedback" class="text-sm text-center hidden text-teal" role="status" aria-live="polite"></p>
+      <p
+        id="form-feedback"
+        class="text-sm text-center hidden text-teal"
+        role="status"
+        aria-live="polite"
+      >
+      </p>
     </form>
-
   </div>
 </section>
 
 <script>
-  const form = document.getElementById('contact-form') as HTMLFormElement | null;
-  const feedback = document.getElementById('form-feedback') as HTMLParagraphElement | null;
+  const form = document.getElementById(
+    "contact-form",
+  ) as HTMLFormElement | null;
+  const feedback = document.getElementById(
+    "form-feedback",
+  ) as HTMLParagraphElement | null;
 
-  form?.addEventListener('submit', (e) => {
+  form?.addEventListener("submit", (e) => {
     e.preventDefault();
     if (!form.checkValidity()) {
       form.reportValidity();
       return;
     }
     if (feedback) {
-      feedback.textContent = '¡Mensaje enviado! Te contactaremos pronto.';
-      feedback.classList.remove('hidden');
+      feedback.textContent = "¡Mensaje enviado! Te contactaremos pronto.";
+      feedback.classList.remove("hidden");
     }
     form.reset();
   });

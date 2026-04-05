@@ -1,5 +1,7 @@
 ---
 // src/components/Hero.astro
+import { Image } from "astro:assets";
+import heroImg from "../assets/hero.jpg";
 ---
 <section class="bg-gradient-to-br from-navy-darkest via-navy-dark to-navy-mid py-20 px-6">
   <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center min-h-[400px]">
@@ -35,11 +37,13 @@
 
     <!-- Imagen derecha -->
     <div class="reveal flex justify-center md:justify-end">
-      <img
-        src="/img/hero.jpg"
+      <Image
+        src={heroImg}
         alt="CodeaLab — Desarrollo de software"
-        width="520"
-        height="520"
+        width={520}
+        height={520}
+        format="webp"
+        quality={80}
         class="w-full max-w-[520px] aspect-square object-cover rounded-xl"
         loading="eager"
         decoding="async"
