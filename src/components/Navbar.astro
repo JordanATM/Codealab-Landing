@@ -1,0 +1,52 @@
+---
+// src/components/Navbar.astro
+---
+<header
+  id="navbar"
+  class="fixed top-0 left-0 right-0 z-50 bg-cream border-b border-navy-mid/10 transition-all duration-300"
+>
+  <nav class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+
+    <!-- Logo -->
+    <a href="/" class="flex items-center gap-2" aria-label="CodeaLab inicio">
+      <img
+        src="/img/Negativo B Texto.svg"
+        alt="CodeaLab"
+        width="110"
+        height="40"
+        class="h-8 w-auto"
+        style="filter: invert(17%) sepia(55%) saturate(800%) hue-rotate(185deg) brightness(0.6);"
+      />
+    </a>
+
+    <!-- Links desktop -->
+    <ul class="hidden md:flex items-center gap-8 list-none m-0 p-0">
+      <li><a href="#servicios" class="text-navy-dark text-sm font-medium hover:text-teal transition-colors">Servicios</a></li>
+      <li><a href="#proceso" class="text-navy-dark text-sm font-medium hover:text-teal transition-colors">Proceso</a></li>
+      <li><a href="#proyectos" class="text-navy-dark text-sm font-medium hover:text-teal transition-colors">Proyectos</a></li>
+      <li><a href="#testimonios" class="text-navy-dark text-sm font-medium hover:text-teal transition-colors">Testimonios</a></li>
+    </ul>
+
+    <!-- CTA button -->
+    <a
+      href="#contacto"
+      class="bg-navy-mid text-cream text-sm font-semibold px-5 py-2 rounded-md hover:bg-teal transition-colors"
+    >
+      Contáctanos
+    </a>
+  </nav>
+</header>
+
+<!-- Spacer para compensar el fixed navbar -->
+<div class="h-16" aria-hidden="true"></div>
+
+<script>
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 20) {
+      navbar?.classList.add('backdrop-blur-md', 'bg-cream/90');
+    } else {
+      navbar?.classList.remove('backdrop-blur-md', 'bg-cream/90');
+    }
+  }, { passive: true });
+</script>
