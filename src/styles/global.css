@@ -1,0 +1,44 @@
+/* src/styles/global.css */
+@import '@fontsource/inter/400.css';
+@import '@fontsource/inter/500.css';
+@import '@fontsource/inter/700.css';
+@import '@fontsource/space-grotesk/700.css';
+@import '@fontsource/space-grotesk/800.css';
+
+@import "tailwindcss";
+
+@theme {
+  --color-navy-darkest: #0A1128;
+  --color-navy-dark: #001F54;
+  --color-navy-mid: #034078;
+  --color-teal: #1282A2;
+  --color-cream: #FEFCFB;
+
+  --font-family-sans: 'Inter', system-ui, sans-serif;
+  --font-family-display: 'Space Grotesk', system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: var(--font-family-sans);
+  }
+
+  body {
+    background-color: var(--color-cream);
+    color: var(--color-navy-dark);
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+/* Scroll reveal — estado inicial */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
